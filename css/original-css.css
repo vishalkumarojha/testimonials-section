@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+  line-height: 0;
+}
+
+picture {
+  width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* remove all button styles */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  line-height: 1.3;
+  text-rendering: optimizeSpeed;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background: linear-gradient(111.34deg, #F6F9FB 0%, #CCDDEE 100%);
+}
+
+/* colors  */
+:root {
+  /* primary */
+  --purple: hsla(263, 55%, 52%, 1);
+  --dark-gray: hsla(217, 19%, 35%, 1);
+  --black: hsla(219, 28%, 14%, 1);
+
+  /* neutral */
+  --white: hsla(0, 0%, 100%, 0.98);
+  --light-gray: hsla(210, 46%, 95%, 1);
+  --warm-gray: hsla(0, 0%, 85%, 1);
+  --50-gray: hsla(217, 10%, 60%, 1);
+}
+
+/* typography */
+.heading,
+span,
+a {
+  font: 600 20px/24px 'Barlow Semi Condensed', sans-serif;
+}
+
+.body {
+  font: 500 13px/18px 'Barlow Semi Condensed', sans-serif;
+  opacity: 0.7;
+}
+
+.profile-name {
+  font: 500 13px/1 'Barlow Semi Condensed', sans-serif;
+}
+
+.profile-title {
+  font: 500 11px/1 'Barlow Semi Condensed', sans-serif;
+  opacity: 0.5;
+}
+
+/* card colors */
+
+.card-purple {
+  color: var(--black);
+  background: linear-gradient(180deg, #733FC8 0%, #9168D4 100%);
+  grid-column: span 2;
+  position: relative;
+  z-index: 1;
+}
+
+.quote {
+  content: url(./images/bg-pattern-quotation-2.svg);
+  position: absolute;
+  right: 80px;
+  top: 0;
+  z-index: -1;
+}
+
+.card-gray {
+  color: var(--black);
+  background: linear-gradient(180deg, #48556A 0%, #667286 100%);
+  /* background-color: var(--dark-gray); */
+}
+
+.card-black {
+  color: var(--black);
+  background: linear-gradient(180deg, #1A212E 0%, #41516D 100%);
+  grid-column: span 2;
+  /* background-color: var(--black); */
+}
+
+.card-white-1,
+.card-white-2 {
+  color: var(--black);
+  background: linear-gradient(360deg, #f1f1f7 0%, #FFFFFF 100%);
+  /* background-color: var(--white); */
+}
+
+.card-white-1 {
+  grid-row: span 2;
+}
+
+/* card */
+
+.container {
+  margin-inline: 40px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1110px;
+  /* margin: 0 auto; */
+  margin: 40px;
+  row-gap: 24px;
+  column-gap: 30px;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.247378);
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile img {
+  max-width: 36px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.border {
+  border: 2px solid hsla(264, 82%, 70%, 1);
+}
+
+.border-yellow {
+  border: 3px solid #E4FF3E;
+}
+
+.border-purple {
+  border: 3px solid #9e61ff;
+}
+
+.border-cyan {
+  border: 3px solid hsla(158, 84%, 81%, 1);
+}
+
+.border-gray {
+  border: 3px solid rgb(179, 179, 179);
+}
+
+.testimonials .heading {
+  padding-bottom: 16px;
+}
+
+/* hover states */
+
+@media (hover:hover) {
+  .card:hover {
+    transform: scale(1.01);
+    filter: saturate(1.3);
+    box-shadow: 40px 60px 50px -47px rgba(26, 33, 45, 0.5);
+  }
+
+  .card-purple:hover,
+  .card-white-2:hover {
+    transform: translateX(-8px);
+  }
+
+  .card-white-1:hover {
+    transform: translateX(8px);
+  }
+
+  .card-black:hover {
+    transform: translateY(8px);
+  }
+
+  .card-gray:hover {
+    transform: translateY(-8px);
+  }
+
+  .card-grid:hover>.card:not(:hover) {
+    filter: blur(1.5px);
+    opacity: 0.8;
+  }
+}
+
+/* mobile breaking point */
+
+@media (max-width: 800px) {
+  .container {
+    margin-inline: 24px;
+  }
+
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+.profile,
+.profile img,
+.card,
+.quote {
+  -webkit-animation: slideIn 1s ease-in;
+  animation: slideIn 1s ease-out;
+}
+
+/* intro animation */
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+/* button between projects */
+
+.span-4 {
+  grid-column: span 4;
+}
+
+
+.original-heading {
+  text-align: center;
+}
+
+.link {
+  color: var(--black);
+  transition: ease-in-out 0.3s;
+  /* color: #08F6CA; */
+}
+
+.link:hover {
+  color: #37b3cc;
+  transition: ease-in-out 0.3s;
+}
+
+.link {
+  color: var(--black);
+}
+
+.heading span {
+  color: var(--black);
+}
+
+.original-challenge {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(180deg, #F0F0F0 0%, #F7F7F7 100%);
+}
+
+.original-challenge {
+  grid-column: span 4;
+}
+
+.original-challenge img {
+  display: block;
+  max-width: 36px;
+  max-height: 36px;
+  border-radius: 50%;
+}
+
+.frontend-background {
+  background-image: url(../images/button-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--black);
+}
